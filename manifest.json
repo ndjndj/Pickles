@@ -1,0 +1,24 @@
+{
+    "manifest_version": 1,
+    "name": "tabSleeper",
+    "description": "",
+    "version": "0.1",
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*" ],
+        "js": ["main.js"],
+        "css": ["style.css"]
+    }],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "browser_action": {
+        "default_title": "tabSleeper",
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "tabs",
+        "background",
+        "http://*/*",
+        "https://*/*"
+    ]
+}
