@@ -22,7 +22,7 @@ const downloadTabInfo = (tabsInfo) => {
 const arrToString = (arr) => {
     const colDelimeter = ',';
     const rowDelimeter = '\n';
-    let s = arr.map((row) => row.join(colDelimeter)).join(rowDelimeter);
+    let s = arr.map((row) => row.map((cell) => escapeForCSV(cell)).join(colDelimeter)).join(rowDelimeter);
     return s
 }
 
@@ -57,15 +57,7 @@ const dateToString = (time) => {
 }
 
 const escapeForCSV = (s) => {
-    const targetLst = ['\"', ',', '\\\\n', '\\\\r'];
-    const escapedLst = ['\"\"\"', '\",\"', '\"\\n\"', '\"\\r\"'];
-    let escapedValue = String(s);
-    targetLst.forEach((elm, i) => {
-        let reg = new RegExp(elm, 'g');
-        escapedValue = escapedValue.replace(reg, escapedLst[i]);
-    });
-
-    return escapedValue
+    return `\"${s.replace(/\"/g, '\"\"')}\"`
 }
 
 const log = (attr) => {
