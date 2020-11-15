@@ -19,11 +19,8 @@ const downloadTabInfo = (tabsInfo) => {
     execDownload(csvString, 'csv');
 } 
 
-const arrToString = (arr) => {
-    const colDelimeter = ',';
-    const rowDelimeter = '\n';
-    let s = arr.map((row) => row.map((cell) => escapeForCSV(cell)).join(colDelimeter)).join(rowDelimeter);
-    return s
+const arrToString = (arr, colDelimeter=',', rowDelimeter='\n') => {
+    return arr.map((row) => row.map((cell) => escapeForCSV(cell)).join(colDelimeter)).join(rowDelimeter);
 }
 
 const execDownload = (content, fileType) => {
