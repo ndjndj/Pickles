@@ -12,13 +12,39 @@ const operateCurrentTabs = (callback) => {
 }
 
 const downloadTabInfo = (tabsInfo) => {
-    const delimeter = "\n";
+    // タイトル文字列のエスケープ処理
+    let processedTabsInfo = tabsInfo.map(tabs => [tabs[0], escapeForCSV(tabs[1]), tabs[2]]);
+    console.log(processedTabsInfo);
 } 
+
+const escapeForCSV = (s) => {
+    const targetLst = ['\"', ',', '\\\\n', '\\\\r'];
+    const escapedLst = ['\"\"\"', '\",\"', '\"\\n\"', '\"\\r\"'];
+    let escapedValue = s;
+    targetLst.forEach((elm, i) => {
+        let reg = new RegExp(elm, 'g');
+        escapedValue = escapedValue.replace(reg, escapedLst[i]);
+    });
+
+    return escapedValue
+}
 
 const log = (attr) => {
     console.log(attr);
 }
 
-window.addEventListener('load', () => {
-    operateCurrentTabs(log);
-})
+const run = () => {
+    window.addEventListener('load', () => {
+        //operateCurrentTabs(log);
+        const dlButton = document.getElementById("download");
+        dlButton.addEventListener('click', operateCurrentTabs(downloadTabInfo), false);
+    })
+
+   
+    
+}
+
+run();
+
+
+
