@@ -16,8 +16,7 @@ const downloadTabInfo = (tabsInfo) => {
     let processedTabsInfo = tabsInfo.map(tabs => [tabs[0], escapeForCSV(tabs[1]), tabs[2]]);
     // 配列→CSV文字列
     let csvString = arrToString(processedTabsInfo);
-    console.log(csvString);
-    alert(csvString);
+    execDownload(csvString, 'csv');
 } 
 
 const arrToString = (arr) => {
@@ -28,14 +27,22 @@ const arrToString = (arr) => {
 }
 
 const execDownload = (content, fileType) => {
+    // ファイル名作成
     let nowDate = new Date();
-    let filename = `${dateToString(nowDate)}.${fileType}`;
+    let fileName = `${dateToString(nowDate)}.${fileType}`;
+    let link = document.createElement('a');
+    link.href = `data:text/plain,${encodeURIComponent(content)}`;
+    link.download = fileName;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 const zeroPadding = (targetNum, paddingNum) => {
     const ZERO = "0";
     let joinedZero = ZERO.repeat(paddingNum) + String(targetNum);
-    return joinedZero.slice(-paddingNum);
+    return joinedZero.slice(-paddingNum)
 }
 
 const dateToString = (time) => {
