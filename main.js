@@ -27,6 +27,27 @@ const arrToString = (arr) => {
     return s
 }
 
+const execDownload = (content, fileType) => {
+    let nowDate = new Date();
+    let filename = `${dateToString(nowDate)}.${fileType}`;
+}
+
+const zeroPadding = (targetNum, paddingNum) => {
+    const ZERO = "0";
+    let joinedZero = ZERO.repeat(paddingNum) + String(targetNum);
+    return joinedZero.slice(-paddingNum);
+}
+
+const dateToString = (time) => {
+    let year = zeroPadding(time.getFullYear(), 4);
+    let month = zeroPadding(time.getMonth() + 1, 2);
+    let day = zeroPadding(time.getDate(), 2);
+    let hour = zeroPadding(time.getHours(), 2);
+    let minutes = zeroPadding(time.getMinutes(), 2);
+    let seconds = zeroPadding(time.getSeconds(), 2);
+
+    return year + month + day + hour + minutes + seconds
+}
 
 const escapeForCSV = (s) => {
     const targetLst = ['\"', ',', '\\\\n', '\\\\r'];
