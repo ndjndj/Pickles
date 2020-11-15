@@ -54,7 +54,7 @@ const dateToString = (time) => {
 }
 
 const escapeForCSV = (s) => {
-    return `\"${s.replace(/\"/g, '\"\"')}\"`
+    return `"${s.replace(/\"/g, '\"\"')}"`
 }
 
 const log = (attr) => {
