@@ -1,0 +1,12 @@
+body {
+    width: 300px;
+    height: 200px;
+}
+
+.btn {
+    width: 80%;
+    font-size: 0.7em;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}

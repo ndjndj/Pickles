@@ -5,8 +5,8 @@
     "version": "0.1",
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*" ],
-        "js": ["main.js"],
-        "css": ["style.css"]
+        "js": ["main.js"]
+        
     }],
     "background": {
         "scripts": ["background.js"]
