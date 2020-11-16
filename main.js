@@ -21,6 +21,7 @@ const downloadTabInfo = (tabsInfo) => {
 
 const saveTabInfo = (tabsInfo) => {
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {alert('Setting saved.')});
+    chrome.storage.sync.get(['tabsInfo'], (result) => {console.log(result.tabsInfo)});
 }
 
 const arrToString = (arr, colDelimeter=',', rowDelimeter='\n') => {
