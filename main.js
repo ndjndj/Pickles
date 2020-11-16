@@ -19,6 +19,10 @@ const downloadTabInfo = (tabsInfo) => {
     execDownload(csvString, 'csv');
 } 
 
+const saveTabInfo = (tabsInfo) => {
+    chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {message('Setting saved.')});
+}
+
 const arrToString = (arr, colDelimeter=',', rowDelimeter='\n') => {
     return arr.map((row) => row.map((cell) => escapeForCSV(cell)).join(colDelimeter)).join(rowDelimeter);
 }
@@ -65,7 +69,9 @@ const run = () => {
     window.addEventListener('load', () => {
         //operateCurrentTabs(log);
         const dlButton = document.getElementById('download');
+        const saveButton = document.getElementById('save');
         dlButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfo);});
+        saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
     })
 
    
