@@ -11,16 +11,18 @@ const arrToHTMLTag = (arr) => {
     let checkBox;
     let title;
     let link;
-    
+
     arr.forEach( (tab) => {
         div = document.createElement('div');
         checkBox = document.createElement('input');
         title = document.createElement('p');
         link = document.createElement('a');
+        
 
         checkBox.type = 'checkbox';
-        console.log(title);
-        console.log(link);
+        title.innerHTML = tab[1];
+        link.innerHTML = tab[2];
+        link.href = tab[2];
         div.appendChild(checkBox);
         div.appendChild(title);
         div.appendChild(link);
