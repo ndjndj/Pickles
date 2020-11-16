@@ -17,12 +17,14 @@ const arrToHTMLTag = (arr) => {
         checkBox = document.createElement('input');
         title = document.createElement('p');
         link = document.createElement('a');
-        
+
 
         checkBox.type = 'checkbox';
         title.innerHTML = tab[1];
         link.innerHTML = tab[2];
         link.href = tab[2];
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
         div.appendChild(checkBox);
         div.appendChild(title);
         div.appendChild(link);
