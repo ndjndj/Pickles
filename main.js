@@ -19,9 +19,25 @@ const downloadTabInfo = (tabsInfo) => {
     execDownload(csvString, 'csv');
 } 
 
+const openWindow = (url, name, option='width=400, height=300') => {
+    return window.open(url, name, option);
+}
+
+
+
 const saveTabInfo = (tabsInfo) => {
-    chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {alert('Setting saved.')});
+    chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
     chrome.storage.sync.get(['tabsInfo'], (result) => {console.log(result.tabsInfo)});
+    
+    let link = document.createElement('a');
+    link.addEventListener('click', () => {openWindow('tabsInfo.html', 'tabsInfo')});
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    var obj = link.click();
+    console.log(obj);
+    document.body.removeChild(link);
+
+
 }
 
 const arrToString = (arr, colDelimeter=',', rowDelimeter='\n') => {
@@ -73,7 +89,7 @@ const run = () => {
         const saveButton = document.getElementById('save');
         dlButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfo);});
         saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
-    })
+    });
 
    
     
