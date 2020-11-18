@@ -90,8 +90,6 @@ const run = () => {
         dlButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfo);});
         saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
     });
-
-   
     
 }
 
