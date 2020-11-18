@@ -16,4 +16,10 @@ body {
     border: solid 3px #cccccc;
     border-radius: 8px;
     margin: 0 auto;
+    padding: 4%;
+}
+
+.container {
+    border : solid 2px #71bdf0;
+    border-radius: 8px;
 }
