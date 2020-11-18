@@ -25,6 +25,12 @@ export const arrToHTMLTag = (arr) => {
         link.href = tab[2];
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
+        
+        div.className = 'container';
+        checkBox.className = 'checkBox';
+        title.className = 'title';
+        link.className = 'link';
+
         div.appendChild(checkBox);
         div.appendChild(title);
         div.appendChild(link);
