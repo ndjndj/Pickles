@@ -20,7 +20,7 @@ const arrToHTMLTag = (arr) => {
 
 
         checkBox.type = 'checkbox';
-        title.innerHTML = tab[1];
+        title.innerHTML = `${tab[0]}. ${tab[1]}`;
         link.innerHTML = tab[2];
         link.href = tab[2];
         link.target = '_blank';
