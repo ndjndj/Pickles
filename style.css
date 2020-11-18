@@ -12,8 +12,8 @@ body {
 }
 
 #tabsInfo {
-    text-align: center;
+    width: 80%;
     border: solid 3px #cccccc;
     border-radius: 8px;
-    padding: 0.5em 1em;
+    margin: 0 auto;
 }
