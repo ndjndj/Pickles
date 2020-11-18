@@ -10,3 +10,10 @@ body {
     margin-left: 10%;
     margin-right: 10%;
 }
+
+#tabsInfo {
+    text-align: center;
+    border: solid 3px #cccccc;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
