@@ -31,6 +31,9 @@ body {
 }
 
 .checkLabel {
+    position: absolute;
     background-color: #ff00ff;
-
+    z-index: 1;
+    width: 100px;
+    height: 50px;
 }
