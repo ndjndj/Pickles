@@ -5,12 +5,13 @@ const arrToHTMLTag = (arr) => {
     let checkBox;
     let title;
     let link;
-
+    let label;
     arr.forEach( (tab) => {
         div = document.createElement('div');
         checkBox = document.createElement('input');
         title = document.createElement('p');
         link = document.createElement('a');
+        
         checkBox.type = 'checkbox';
         title.innerHTML = `${tab[0]}. ${tab[1]}`;
         link.innerHTML = tab[2];
