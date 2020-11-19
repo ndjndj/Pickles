@@ -27,9 +27,9 @@ const arrToHTMLTag = (arr) => {
         link.className = 'link';
 
         label.appendChild(checkBox);
-        label.appendChild(title);
-        label.appendChild(link);
         div.appendChild(label);
+        div.appendChild(title);
+        div.appendChild(link);
         parent.appendChild(div);
        
        
