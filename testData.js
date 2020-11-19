@@ -21,7 +21,7 @@ const arrToHTMLTag = (arr) => {
         link.rel = 'noopener noreferrer';
 
         div.className = 'container';
-        label.className = 'checklabel';
+        label.className = 'checkLabel';
         checkBox.className = 'checkBox';
         title.className = 'title';
         link.className = 'link';
