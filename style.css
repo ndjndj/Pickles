@@ -37,4 +37,6 @@ body {
     height: 100%;
 }
 
-
+input[type='checkbox']:checked + label {
+    background-color: #ff00ff;
+}
