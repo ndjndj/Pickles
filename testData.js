@@ -11,7 +11,8 @@ const arrToHTMLTag = (arr) => {
         checkBox = document.createElement('input');
         title = document.createElement('p');
         link = document.createElement('a');
-        
+        label = document.createElement('label');
+
         checkBox.type = 'checkbox';
         title.innerHTML = `${tab[0]}. ${tab[1]}`;
         link.innerHTML = tab[2];
@@ -20,11 +21,13 @@ const arrToHTMLTag = (arr) => {
         link.rel = 'noopener noreferrer';
 
         div.className = 'container';
+        label.className = 'checklabel';
         checkBox.className = 'checkBox';
         title.className = 'title';
         link.className = 'link';
 
-        div.appendChild(checkBox);
+        label.appendChild(checkBox);
+        div.appendChild(label);
         div.appendChild(title);
         div.appendChild(link);
         parent.appendChild(div);
