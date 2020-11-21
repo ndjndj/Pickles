@@ -38,9 +38,10 @@ body {
     background-color: #71bdf0;
 }
 
-.linkLabel {
+.link {
     display: block;
     border: solid 2px #ff00ff;
     border-radius: 8px;
     margin: 4%;
+    text-align: center;
 }
