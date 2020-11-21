@@ -9,16 +9,18 @@ export const arrToHTMLTag = (arr) => {
     let parent = document.getElementById('tabsInfo');
     let div;
     let checkBox;
-    let title;
+    let label;
     let link;
-
+    let span;
     arr.forEach( (tab) => {
+        //要素作成
         div = document.createElement('div');
+        label = document.createElement('label');
         checkBox = document.createElement('input');
-        title = document.createElement('p');
         link = document.createElement('a');
+        span = document.createElement('span');
 
-
+        //プロパティ設定
         checkBox.type = 'checkbox';
         title.innerHTML = `${tab[0]}. ${tab[1]}`;
         link.innerHTML = tab[2];
