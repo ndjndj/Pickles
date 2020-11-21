@@ -1,11 +1,11 @@
-export const getTabsInfo = (callback) => {
+const getTabsInfo = (callback) => {
     // storage のデータ取得
     chrome.storage.sync.get(['tabsInfo'], (result) => {
         callback(result.tabsInfo);
     });
 }
 
-export const arrToHTMLTag = (arr) => {
+const arrToHTMLTag = (arr) => {
     let parent = document.getElementById('tabsInfo');
     let div;
     let checkBox;
@@ -45,7 +45,7 @@ export const arrToHTMLTag = (arr) => {
     });
 }
 
-export const run = () => {
+const run = () => {
     window.addEventListener('load', () => {
         getTabsInfo(arrToHTMLTag);
     });
