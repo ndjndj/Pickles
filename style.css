@@ -58,3 +58,7 @@ body {
 .link:hover {
     background-color: #f8d7f8;
 }
+
+.checkLabel:hover {
+    background-color: #a5c9f3;
+}
