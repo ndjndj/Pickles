@@ -46,3 +46,7 @@ body {
     text-align: center;
     background-color: #ffa9ff;
 }
+
+.link:hover {
+    background-color: #f8d7f8;
+}
