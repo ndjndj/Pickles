@@ -20,8 +20,6 @@ body {
 }
 
 .container {
-    border : solid 2px #71bdf0;
-    border-radius: 8px;
     margin: 4% 2%;
     padding: 4%;
     position: relative;
@@ -31,21 +29,25 @@ body {
     display: none;
 }
 
-.checkLabel span {
+.checkLabel span{
+    border: solid 2px #ceebc7;
     position: absolute;
     display: block;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
+    width: 98%;
     height: 100%;
-    background-color: #71bdf0;
+    padding-left: 2%;
+    border-radius: 4px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
+    background-color: #b8f1a9;
 }
+
 
 .link {
     position: relative;
@@ -62,7 +64,10 @@ body {
     background-color: #f8d7f8;
 }
 
-.checkLabel:hover {
-    background-color: #a5c9f3;
+.checkLabel input[type="checkbox"]:hover + span {
+    background-color: #95ec73;
 }
 
+.checkLabel input[type="checkbox"]:checked + span {
+    background-color: #8bf759;
+}
