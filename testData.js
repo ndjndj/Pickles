@@ -1,41 +1,43 @@
 
 const arrToHTMLTag = (arr) => {
-    let parent = document.getElementById('tabsInfo'); 
+    let parent = document.getElementById('tabsInfo');
     let div;
     let checkBox;
-    let title;
-    let link;
     let label;
+    let link;
+    let span;
     arr.forEach( (tab) => {
+        //コンテナ作成
         div = document.createElement('div');
-        checkBox = document.createElement('input');
-        title = document.createElement('p');
-        link = document.createElement('a');
+        div.className = 'container';
+        
+        //ラベル作成
         label = document.createElement('label');
-
+        label.className = 'checkLabel';
+        
+        //チェックボックス作成
+        checkBox = document.createElement('input');
+        checkBox.className = 'checkBox';
         checkBox.type = 'checkbox';
-        title.innerHTML = `${tab[0]}. ${tab[1]}`;
-        link.innerHTML = tab[2];
+        span = document.createElement('span');
+        span.innerHTML = `${tab[0]}. ${tab[1]}`;
+
+        //リンク作成
+        link = document.createElement('a');
+        link.className = 'link';
+        link.innerHTML = 'jump this page';
         link.href = tab[2];
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
-
-        div.className = 'container';
-        label.className = 'checkLabel';
-        checkBox.className = 'checkBox';
-        title.className = 'title';
-        link.className = 'link';
-
+              
+        //要素追加
         label.appendChild(checkBox);
+        label.appendChild(span);
         div.appendChild(label);
-        div.appendChild(title);
         div.appendChild(link);
         parent.appendChild(div);
-       
-       
     });
 }
-
 const testArray = [
           [1, 'Qiita.com', 'https://Qiita.com']
         , [2, 'Qiita.com', 'https://Qiita.com']
