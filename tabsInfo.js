@@ -13,28 +13,33 @@ export const arrToHTMLTag = (arr) => {
     let link;
     let span;
     arr.forEach( (tab) => {
-        //要素作成
+        //コンテナ作成
         div = document.createElement('div');
+        div.className = 'container';
+        
+        //ラベル作成
         label = document.createElement('label');
+        label.className = 'checkLabel';
+        
+        //チェックボックス作成
         checkBox = document.createElement('input');
-        link = document.createElement('a');
-        span = document.createElement('span');
-
-        //プロパティ設定
+        checkBox.className = 'checkBox';
         checkBox.type = 'checkbox';
-        title.innerHTML = `${tab[0]}. ${tab[1]}`;
-        link.innerHTML = tab[2];
+        span = document.createElement('span');
+        span.innerHTML = `${tab[0]}. ${tab[1]}`;
+
+        //リンク作成
+        link = document.createElement('a');
+        link.className = 'link';
+        link.innerHTML = 'jump this page';
         link.href = tab[2];
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
-        
-        div.className = 'container';
-        checkBox.className = 'checkBox';
-        title.className = 'title';
-        link.className = 'link';
-
-        div.appendChild(checkBox);
-        div.appendChild(title);
+              
+        //要素追加
+        label.appendChild(checkBox);
+        label.appendChild(span);
+        div.appendChild(label);
         div.appendChild(link);
         parent.appendChild(div);
     });
