@@ -19,7 +19,7 @@ const downloadTabInfo = (tabsInfo) => {
     execDownload(csvString, 'csv');
 } 
 
-const openWindow = (url, name, option='width=400, height=300') => {
+const openWindow = (url, name, option='width=400, height=600') => {
     return window.open(url, name, option);
 }
 
