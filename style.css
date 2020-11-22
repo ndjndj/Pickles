@@ -17,10 +17,11 @@ a {
 }
 
 #tabsInfo {
-    width: 80%;
+    width: 100%;
     border: solid 3px #cccccc;
     border-radius: 8px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 4%;
 }
 
@@ -84,3 +85,4 @@ a {
     width: 40%;
     margin: 4% 30% 4% 30%;
 }
+
