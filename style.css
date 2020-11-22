@@ -53,17 +53,17 @@ body {
 .link {
     position: relative;
     display: block;
-    border: solid 2px #ff00ff;
+    border: solid 2px #3a6805;
     border-radius: 8px;
     margin-top: 8%;
     margin-bottom: -4%;
     text-align: center;
-    background-color: #ffa9ff;
+    background-color: #ffffff;
     z-index: 1;
 }
 
 .link:hover {
-    background-color: #f8d7f8;
+    background-color: #91b16d;
 }
 
 .checkLabel input[type="checkbox"]:hover + span {
