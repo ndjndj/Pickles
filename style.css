@@ -9,14 +9,6 @@ a {
     text-decoration: none;
 }
 
-.btn {
-    width: 80%;
-    font-size: 0.7em;
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
 #tabsInfo {
     width: 100%;
     border: solid 3px #cccccc;
@@ -81,7 +73,7 @@ a {
     background-color: #ffb35d;
 }
 
-.done {
+.btn {
     width: 40%;
     overflow: hidden;
     background-color: #000000;
@@ -98,13 +90,13 @@ a {
     border-radius: 8px;
 }
 
-.done span {
+.btn span {
     position: relative;
     font-weight: 700;
     font-size: 1.6rem;
 }
 
-.done::before {
+.btn::before {
     content: "";
     position: absolute;
     top: 0;
@@ -116,10 +108,10 @@ a {
     background-color: #68eb85;
 }
 
-.done:hover::before {
+.btn:hover::before {
     transform: translateX(0%);
 }
 
-.done:hover {
+.btn:hover {
     color: #000000;
 }
