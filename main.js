@@ -27,14 +27,12 @@ const openWindow = (url, name, option='width=400, height=600') => {
 
 const saveTabInfo = (tabsInfo) => {
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
-    chrome.storage.sync.get(['tabsInfo'], (result) => {console.log(result.tabsInfo)});
     
     let link = document.createElement('a');
     link.addEventListener('click', () => {openWindow('tabsInfo.html', 'tabsInfo')});
     link.style.display = 'none';
     document.body.appendChild(link);
-    var obj = link.click();
-    console.log(obj);
+    let obj = link.click();
     document.body.removeChild(link);
 
 
