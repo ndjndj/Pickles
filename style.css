@@ -3,6 +3,10 @@ body {
     height: 200px;
 }
 
+a {
+    color: inherit;
+}
+
 .btn {
     width: 80%;
     font-size: 0.7em;
@@ -53,13 +57,14 @@ body {
 .link {
     position: relative;
     display: block;
+    width: 80%;
     border: solid 2px #3a6805;
     border-radius: 8px;
-    margin-top: 8%;
-    margin-bottom: -4%;
+    margin: 8% 10% -4% 10%;
     text-align: center;
     background-color: #ffffff;
     z-index: 1;
+    text-decoration: none;
 }
 
 .link:hover {
