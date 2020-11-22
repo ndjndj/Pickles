@@ -87,9 +87,10 @@ a {
     background-color: #000000;
     color: #ffffff;
     position: relative;
-    padding: 2% 6%;
+    padding: 0% 6%;
     margin-left: 30%;
     margin-right: 30%;
+    margin: 4% 30% 4% 30%;
     line-height: 1.5;
     display: inline-block;
     text-align: center;
@@ -99,6 +100,8 @@ a {
 
 .done span {
     position: relative;
+    font-weight: 700;
+    font-size: 1.6rem;
 }
 
 .done::before {
@@ -110,9 +113,13 @@ a {
     height: 100%;
     transition: all .5s ease-in-out;
     transform: translateX(-98%);
-    background-color: #eb6877;
+    background-color: #68eb85;
 }
 
 .done:hover::before {
     transform: translateX(0%);
+}
+
+.done:hover {
+    color: #000000;
 }
