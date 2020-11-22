@@ -1,6 +1,6 @@
 body {
     width: 300px;
-    height: 200px;
+    height: 400px;
 }
 
 a {
@@ -77,4 +77,9 @@ a {
 
 .checkLabel input[type="checkbox"]:checked + span {
     background-color: #ffb35d;
+}
+
+.done {
+    width: 40%;
+    margin: 4% 30% 4% 30%;
 }
