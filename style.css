@@ -46,6 +46,7 @@ body {
     overflow: hidden;
     cursor: pointer;
     background-color: #ffffff;
+    text-decoration: underline;
 }
 
 
@@ -54,7 +55,7 @@ body {
     display: block;
     border: solid 2px #ff00ff;
     border-radius: 8px;
-    margin-top: 16%;
+    margin-top: 8%;
     text-align: center;
     background-color: #ffa9ff;
     z-index: 1;
