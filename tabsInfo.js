@@ -27,12 +27,12 @@ const arrToHTMLTag = (arr) => {
         checkBox.type = 'checkbox';
         checkBox.checked = 'checked';
         span = document.createElement('span');
-        span.innerHTML = `${tab[0]}. ${tab[1]}`;
+        span.textContent = `${tab[0]}. ${tab[1]}`;
 
         //リンク作成
         link = document.createElement('a');
         link.className = 'link';
-        link.innerHTML = 'jump this page';
+        link.textContent = 'jump this page';
         link.href = tab[2];
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
