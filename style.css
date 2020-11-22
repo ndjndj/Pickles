@@ -30,7 +30,7 @@ body {
 }
 
 .checkLabel span{
-    border: solid 2px #ceebc7;
+    border: solid 2px #576dec;
     position: absolute;
     display: block;
     top: 0;
@@ -45,7 +45,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
-    background-color: #b8f1a9;
+    background-color: #ffffff;
 }
 
 
@@ -65,9 +65,9 @@ body {
 }
 
 .checkLabel input[type="checkbox"]:hover + span {
-    background-color: #95ec73;
+    background-color: #fac991;
 }
 
 .checkLabel input[type="checkbox"]:checked + span {
-    background-color: #8bf759;
+    background-color: #ffb35d;
 }
