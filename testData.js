@@ -47,9 +47,10 @@ const testArray = [
         , [6, 'aタグ 新しいタブ - Google 検索','https://www.google.com/search?q=a%E3%82%BF%E3%82%B0+%E6%96%B0%E3%81%97%E3%81%84%E3%82%BF%E3%83%96&']
 ];
 
-
-const saveButton = document.getElementsByClassName('save')[0];
-saveButton.addEventListener('click', () => {saveTabs();});
+const saveTabs = () => {
+    const tabName = document.getElementById('tabName');
+    alert(tabName.innerText);
+}
 
 const run = () => {
     window.addEventListener('load', () => {
