@@ -11,10 +11,9 @@ a {
 
 #tabsInfo {
     width: 100%;
-    border: solid 3px #cccccc;
-    border-radius: 8px;
-    margin-left: auto;
-    margin-right: auto;
+    border: solid 2px #cccccc;
+    border-radius: 4px;
+    margin: 0 0;
     padding: 4%;
 }
 
@@ -74,26 +73,29 @@ a {
 }
 
 .btn {
-    width: 40%;
+    width: calc(20% + 4px);
+    height: 4%;
     overflow: hidden;
     background-color: #000000;
     color: #ffffff;
     position: relative;
-    padding: 0% 6%;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin: 4% 30% 4% 30%;
-    line-height: 1.5;
-    display: inline-block;
+    padding: 0% 4% 0% 4%;
+    margin: 4% 40% 4% 40%;
+    line-height: 2.0;
+    display: block;
     text-align: center;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.0rem;
 }
 
 .btn span {
-    position: relative;
-    font-weight: 700;
-    font-size: 1.6rem;
+    position: absolute;    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .btn::before {
@@ -104,7 +106,7 @@ a {
     width: 100%;
     height: 100%;
     transition: all .5s ease-in-out;
-    transform: translateX(-98%);
+    transform: translateX(-96%);
     background-color: #68eb85;
 }
 

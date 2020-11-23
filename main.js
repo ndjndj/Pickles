@@ -19,7 +19,7 @@ const downloadTabInfo = (tabsInfo) => {
     execDownload(csvString, 'csv');
 } 
 
-const openWindow = (url, name, option='width=400, height=600') => {
+const openWindow = (url, name, option='width=380, height=600') => {
     return window.open(url, name, option);
 }
 
@@ -32,7 +32,7 @@ const saveTabInfo = (tabsInfo) => {
     link.addEventListener('click', () => {openWindow('tabsInfo.html', 'tabsInfo')});
     link.style.display = 'none';
     document.body.appendChild(link);
-    let obj = link.click();
+    var obj = link.click();
     document.body.removeChild(link);
 
 
