@@ -34,6 +34,8 @@ const arrToHTMLTag = (arr) => {
         //リンク情報作成
         tabTitle = document.createElement('input');
         tabHref = document.createElement('input');
+        tabTitle.className = 'tabTitle';
+        tabHref.className = 'tabHref';
         tabTitle.type = 'hidden';
         tabHref.type = 'hidden';
         tabTitle.value = tab[1];
