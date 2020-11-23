@@ -61,26 +61,27 @@ const testArray = [
 const saveTabs = () => {
     const tabName = document.getElementById('tabName');
     const tabsInfo = document.getElementById('tabsInfo');
-    const containers = document.getElementsByClassName('container');
+    const containers = tabsInfo.getElementsByClassName('container');
     console.log(containers[0].getElementsByClassName('checkLabel')[0].getElementsByTagName('input')[0].checked);
     
-    let tabsInfo = [];
+    let newTabsInfo = [];
+    let index = 1;
     Array.prototype.forEach.call(
           containers
         , (container) => {
-            let index = 1;
             let checkVal = container.getElementsByClassName('checkLabel')[0]
                                     .getElementsByTagName('input')[0].checked;
-
             if (checkVal) {
                 let tabTitle = container.getElementsByClassName('tabTitle')[0].value;
                 let tabHref = container.getElementsByClassName('tabHref')[0].value;
-                console.log(tabTitle);
-                console.log(tabHref);
+                let info = [index, tabTitle, tabHref];
+                newTabsInfo.push(info);
+                
+                index++;
             }
         }
     );
-    
+    console.log(newTabsInfo);
 }
 
 const run = () => {
