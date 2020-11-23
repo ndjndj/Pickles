@@ -46,9 +46,17 @@ const arrToHTMLTag = (arr) => {
     });
 }
 
+const saveTabs = () => {
+    const tabName = document.getElementById('tabName');
+    alert(tabName.innerText);
+}
+
 const run = () => {
     window.addEventListener('load', () => {
+        const saveButton = document.getElementsByClassName('save')[0];
+
         getTabsInfo(arrToHTMLTag);
+        saveButton.addEventListener('click', () => {saveTabs();});
     });
 }
 
