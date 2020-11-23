@@ -49,15 +49,19 @@ const testArray = [
 
 const saveTabs = () => {
     const tabName = document.getElementById('tabName');
-    alert(tabName.value);
+    const tabsInfo = document.getElementById('tabsInfo');
+    console.log(tabName);
+    console.log(tabsInfo);
 }
 
 const run = () => {
     window.addEventListener('load', () => {
-        const saveButton = document.getElementsByClassName('save')[0];
-        console.log(saveButton);
+        const saveButtons = document.getElementsByClassName('save');
+        console.log(saveButtons);
         // arrToHTMLTag(testArray);
-        saveButton.addEventListener('click', () => {saveTabs();});
+        Array.prototype.forEach.call(
+              saveButtons
+            , (btn) => {btn.addEventListener('click', () => {saveTabs();})});
     });
 }
 

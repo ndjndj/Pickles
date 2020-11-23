@@ -48,7 +48,9 @@ const arrToHTMLTag = (arr) => {
 
 const saveTabs = () => {
     const tabName = document.getElementById('tabName');
-    alert(tabName.innerText);
+    const tabsInfo = document.getElementById('tabsInfo');
+    console.log(tabName);
+    console.log(tabsInfo);
 }
 
 const run = () => {

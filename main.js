@@ -32,8 +32,6 @@ const saveTabInfo = (tabsInfo) => {
     document.body.appendChild(link);
     var obj = link.click();
     document.body.removeChild(link);
-
-
 }
 
 const arrToString = (arr, colDelimeter=',', rowDelimeter='\n') => {
@@ -44,6 +42,7 @@ const execDownload = (content, fileType) => {
     // ファイル名作成
     let nowDate = new Date();
     let fileName = `${dateToString(nowDate)}.${fileType}`;
+    // ダウンロードリンク作成
     let link = document.createElement('a');
     link.href = `data:text/plain,${encodeURIComponent(content)}`;
     link.download = fileName;
