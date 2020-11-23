@@ -52,7 +52,10 @@ const arrToHTMLTag = (arr) => {
         label.appendChild(span);
         div.appendChild(label);
         div.appendChild(link);
+        div.appendChild(tabTitle);
+        div.appendChild(tabHref);
         parent.appendChild(div);
+
     });
 }
 
