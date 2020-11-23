@@ -49,14 +49,14 @@ const testArray = [
 
 const saveTabs = () => {
     const tabName = document.getElementById('tabName');
-    alert(tabName.innerText);
+    alert(tabName.value);
 }
 
 const run = () => {
     window.addEventListener('load', () => {
         const saveButton = document.getElementsByClassName('save')[0];
-
-        arrToHTMLTag(testArray);
+        console.log(saveButton);
+        // arrToHTMLTag(testArray);
         saveButton.addEventListener('click', () => {saveTabs();});
     });
 }
