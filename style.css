@@ -118,3 +118,23 @@ a {
 .btn:hover {
     color: #000000;
 }
+
+.textInput {
+    position: relative;
+}
+
+.textInput input[type="text"]:focus::placeholder {
+    color: transparent;
+}
+
+.textInput input[type="text"] {
+    color: #000000;
+    border: none;
+    border-bottom: solid 2px #f1c1c1;
+    position: relative;
+}
+
+.textInput input[type="text"]:focus {
+    color: #000000;
+    border: none;
+}

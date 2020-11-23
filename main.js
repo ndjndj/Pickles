@@ -23,8 +23,6 @@ const openWindow = (url, name, option='width=370, height=600') => {
     return window.open(url, name, option);
 }
 
-
-
 const saveTabInfo = (tabsInfo) => {
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
     
