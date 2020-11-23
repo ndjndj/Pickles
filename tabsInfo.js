@@ -12,6 +12,8 @@ const arrToHTMLTag = (arr) => {
     let label;
     let link;
     let span;
+    let tabTitle;
+    let tabHref;
     arr.forEach( (tab) => {
         //コンテナ作成
         div = document.createElement('div');
@@ -28,6 +30,14 @@ const arrToHTMLTag = (arr) => {
         checkBox.checked = 'checked';
         span = document.createElement('span');
         span.textContent = `${tab[0]}. ${tab[1]}`;
+
+        //リンク情報作成
+        tabTitle = document.createElement('input');
+        tabHref = document.createElement('input');
+        tabTitle.type = 'hidden';
+        tabHref.type = 'hidden';
+        tabTitle.value = tab[1];
+        tabHref.value = tab[2];
 
         //リンク作成
         link = document.createElement('a');
