@@ -65,7 +65,7 @@ const dateToString = (time) => {
     let hour = zeroPadding(time.getHours(), 2);
     let minutes = zeroPadding(time.getMinutes(), 2);
     let seconds = zeroPadding(time.getSeconds(), 2);
-    let millisec = zeroPadding(time.getMilliSeconds(), 3);
+    let millisec = zeroPadding(time.getMilliseconds(), 3);
     return year + month + day + hour + minutes + seconds + millisec
 }
 
