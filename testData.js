@@ -59,10 +59,11 @@ const testArray = [
 ];
 
 const saveTabs = () => {
+    const key = dateToString(new Date());
+    console.log(key);
     const tabName = document.getElementById('tabName');
     const tabsInfo = document.getElementById('tabsInfo');
     const containers = tabsInfo.getElementsByClassName('container');
-    console.log(containers[0].getElementsByClassName('checkLabel')[0].getElementsByTagName('input')[0].checked);
     
     let newTabsInfo = [];
     let index = 1;
@@ -81,7 +82,25 @@ const saveTabs = () => {
             }
         }
     );
-    console.log(newTabsInfo);
+    
+
+}
+
+const zeroPadding = (targetNum, paddingNum) => {
+    const ZERO = "0";
+    let joinedZero = ZERO.repeat(paddingNum) + String(targetNum);
+    return joinedZero.slice(-paddingNum)
+}
+
+const dateToString = (time) => {
+    let year = zeroPadding(time.getFullYear(), 4);
+    let month = zeroPadding(time.getMonth() + 1, 2);
+    let day = zeroPadding(time.getDate(), 2);
+    let hour = zeroPadding(time.getHours(), 2);
+    let minutes = zeroPadding(time.getMinutes(), 2);
+    let seconds = zeroPadding(time.getSeconds(), 2);
+    let millisec = zeroPadding(time.getMilliSeconds(), 3);
+    return year + month + day + hour + minutes + seconds + millisec
 }
 
 const run = () => {
