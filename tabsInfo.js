@@ -62,10 +62,46 @@ const arrToHTMLTag = (arr) => {
 }
 
 const saveTabs = () => {
+    const key = dateToString(new Date());
+    console.log(key);
     const tabName = document.getElementById('tabName');
     const tabsInfo = document.getElementById('tabsInfo');
-    console.log(tabName);
-    console.log(tabsInfo);
+    const containers = tabsInfo.getElementsByClassName('container');
+    
+    let newTabsInfo = [];
+    let index = 1;
+    Array.prototype.forEach.call(
+          containers
+        , (container) => {
+            let checkVal = container.getElementsByClassName('checkLabel')[0]
+                                    .getElementsByTagName('input')[0].checked;
+            if (checkVal) {
+                let tabTitle = container.getElementsByClassName('tabTitle')[0].value;
+                let tabHref = container.getElementsByClassName('tabHref')[0].value;
+                let info = [index, tabTitle, tabHref];
+                newTabsInfo.push(info);
+                
+                index++;
+            }
+        }
+    );
+}
+
+const zeroPadding = (targetNum, paddingNum) => {
+    const ZERO = "0";
+    let joinedZero = ZERO.repeat(paddingNum) + String(targetNum);
+    return joinedZero.slice(-paddingNum)
+}
+
+const dateToString = (time) => {
+    let year = zeroPadding(time.getFullYear(), 4);
+    let month = zeroPadding(time.getMonth() + 1, 2);
+    let day = zeroPadding(time.getDate(), 2);
+    let hour = zeroPadding(time.getHours(), 2);
+    let minutes = zeroPadding(time.getMinutes(), 2);
+    let seconds = zeroPadding(time.getSeconds(), 2);
+    let millisec = zeroPadding(time.getMilliseconds(), 3);
+    return year + month + day + hour + minutes + seconds + millisec
 }
 
 const run = () => {
