@@ -74,14 +74,14 @@ a {
 }
 
 .btn {
-    width: calc(20% + 4px);
+    width: calc(30% + 4px);
     height: 4%;
     overflow: hidden;
     background-color: #000000;
     color: #ffffff;
     position: relative;
     padding: 0% 4% 0% 4%;
-    margin: 4% 40% 4% 40%;
+    margin: 4% 35% 4% 35%;
     line-height: 2.0;
     display: block;
     text-align: center;
@@ -111,6 +111,10 @@ a {
     background-color: #68eb85;
 }
 
+.exit::before {
+    background-color: #eb6868;
+}
+
 .btn:hover::before {
     transform: translateX(0%);
 }
@@ -137,4 +141,8 @@ a {
 .textInput input[type="text"]:focus {
     color: #000000;
     border: none;
+}
+
+#output-md {
+    white-space: pre;
 }

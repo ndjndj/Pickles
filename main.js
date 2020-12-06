@@ -28,7 +28,23 @@ const downloadTabInfoMarkDown = (tabInfo) => {
 }
 
 const openWindow = (url, name, option='width=370, height=600') => {
-    return window.open(url, name, option);
+    let link = document.createElement('a');
+    link.addEventListener('click', () => {window.open(url, name, option);});
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    var obj = link.click();
+    document.body.removeChild(link);
+}
+
+const openOutputWindow = (tabsInfo) => {
+    // arr->マークダウン文字列
+    let md = arrToStringMarkDown(tabsInfo);
+
+    //タブ情報を一時的に保存する
+    chrome.storage.sync.set({'mdString': md}, () => {});
+    
+    //新しいウインドウを作成する
+    openWindow('output-md.html', 'output-md');
 }
 
 const saveTabInfo = (tabsInfo) => {
@@ -36,12 +52,7 @@ const saveTabInfo = (tabsInfo) => {
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
     
     //新しいウインドウを作成する
-    let link = document.createElement('a');
-    link.addEventListener('click', () => {openWindow('tabsInfo.html', 'tabsInfo')});
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    var obj = link.click();
-    document.body.removeChild(link);
+    openWindow('tabsInfo.html', 'tabsInfo');
 }
 
 const arrToStringCSV = (arr, colDelimeter=',', rowDelimeter='\n') => {
@@ -95,11 +106,13 @@ const run = () => {
     window.addEventListener('load', () => {
         //operateCurrentTabs(log);
         const csvButton = document.getElementById('csv');
-        const mdButton = document.getElementById('md');
+        const dlMdButton = document.getElementById('dl-md');
+        const outputMdButton = document.getElementById('output-md');
         const saveButton = document.getElementById('save');
 
         csvButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoCSV);});
-        mdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
+        dlMdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
+        outputMdButton.addEventListener('click', () => {operateCurrentTabs(openOutputWindow);});
         saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
     });
     
