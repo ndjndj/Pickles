@@ -74,7 +74,7 @@ a {
 }
 
 .btn {
-    width: calc(20% + 4px);
+    width: calc(30% + 4px);
     height: 4%;
     overflow: hidden;
     background-color: #000000;
