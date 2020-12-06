@@ -1,6 +1,7 @@
 const getMD = (callback) => {
     // storage のデータを取得
     chrome.storage.sync.get(['mdString'], (result) => {
+        console.log(result.mdString);
         callback(result.mdString);
     });
 
@@ -8,13 +9,13 @@ const getMD = (callback) => {
 
 const copyClipboard = (id) => {
     let target = document.getElementById(id);
-    target.querySelector();
+    target.select();
     document.execCommand('copy');
 }
 
 const pasteMDString = (mdString) => {
     let textarea = document.getElementById('output-md');
-    textarea.innerText = mdString;
+    textarea.value = mdString;
 }
 
 const closeWindow = () => {

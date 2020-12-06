@@ -142,3 +142,7 @@ a {
     color: #000000;
     border: none;
 }
+
+#output-md {
+    white-space: pre;
+}
