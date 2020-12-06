@@ -95,11 +95,11 @@ const run = () => {
     window.addEventListener('load', () => {
         //operateCurrentTabs(log);
         const csvButton = document.getElementById('csv');
-        const mdButton = document.getElementById('md');
+        const dlMdButton = document.getElementById('dl-md');
         const saveButton = document.getElementById('save');
 
         csvButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoCSV);});
-        mdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
+        dlMdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
         saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
     });
     
