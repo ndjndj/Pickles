@@ -28,7 +28,12 @@ const downloadTabInfoMarkDown = (tabInfo) => {
 }
 
 const openWindow = (url, name, option='width=370, height=600') => {
-    return window.open(url, name, option);
+    let link = document.createElement('a');
+    link.addEventListener('click', () => {window.open(url, name, option);});
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    var obj = link.click();
+    document.body.removeChild(link);
 }
 
 const saveTabInfo = (tabsInfo) => {
@@ -36,12 +41,7 @@ const saveTabInfo = (tabsInfo) => {
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
     
     //新しいウインドウを作成する
-    let link = document.createElement('a');
-    link.addEventListener('click', () => {openWindow('tabsInfo.html', 'tabsInfo')});
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    var obj = link.click();
-    document.body.removeChild(link);
+    openWindow('tabsInfo.html', 'tabsInfo');
 }
 
 const arrToStringCSV = (arr, colDelimeter=',', rowDelimeter='\n') => {
