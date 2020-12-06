@@ -36,6 +36,17 @@ const openWindow = (url, name, option='width=370, height=600') => {
     document.body.removeChild(link);
 }
 
+const openOutputWindow = (tabsInfo) => {
+    // arr->マークダウン文字列
+    let md = arrToStringMarkDown(tabsInfo);
+
+    //タブ情報を一時的に保存する
+    chrome.storage.sync.set({'mdString': md}, () => {});
+    
+    //新しいウインドウを作成する
+    openWindow('output-md.html', 'output-md');
+}
+
 const saveTabInfo = (tabsInfo) => {
     //タブ情報を一時的に保存する
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
