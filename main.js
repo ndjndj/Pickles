@@ -107,10 +107,12 @@ const run = () => {
         //operateCurrentTabs(log);
         const csvButton = document.getElementById('csv');
         const dlMdButton = document.getElementById('dl-md');
+        const outputMdButton = document.getElementById('output-md');
         const saveButton = document.getElementById('save');
 
         csvButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoCSV);});
         dlMdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
+        outputMdButton.addEventListener('click', () => {operateCurrentTabs(openOutputWindow);});
         saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
     });
     
