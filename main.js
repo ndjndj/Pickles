@@ -16,12 +16,14 @@ const downloadTabInfoCSV = (tabsInfo) => {
     let processedTabsInfo = tabsInfo.map(tabs => [tabs[0], escapeForCSV(tabs[1]), tabs[2]]);
     // 配列→CSV文字列
     let csvString = arrToStringCSV(processedTabsInfo);
+    // ダウンロード実行
     execDownload(csvString, 'csv');
 } 
 
 const downloadTabInfoMarkDown = (tabInfo) => {
     // 配列→MarkDown フォーマット
     let mdString = arrToStringMarkDown(tabsInfo);
+    // ダウンロード実行
     execDownload(mdString, 'md');
 }
 
