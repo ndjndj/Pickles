@@ -11,21 +11,29 @@ const operateCurrentTabs = (callback) => {
     );
 }
 
-const downloadTabInfo = (tabsInfo) => {
+const downloadTabInfoCSV = (tabsInfo) => {
     // タイトル文字列のエスケープ処理
     let processedTabsInfo = tabsInfo.map(tabs => [tabs[0], escapeForCSV(tabs[1]), tabs[2]]);
     // 配列→CSV文字列
-    let csvString = arrToString(processedTabsInfo);
+    let csvString = arrToStringCSV(processedTabsInfo);
     execDownload(csvString, 'csv');
 } 
+
+const downloadTabInfoMarkDown = (tabInfo) => {
+    // 配列→MarkDown フォーマット
+    let mdString = arrToStringMarkDown(tabsInfo);
+    execDownload(mdString, 'md');
+}
 
 const openWindow = (url, name, option='width=370, height=600') => {
     return window.open(url, name, option);
 }
 
 const saveTabInfo = (tabsInfo) => {
+    //タブ情報を一時的に保存する
     chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
     
+    //新しいウインドウを作成する
     let link = document.createElement('a');
     link.addEventListener('click', () => {openWindow('tabsInfo.html', 'tabsInfo')});
     link.style.display = 'none';
@@ -34,8 +42,12 @@ const saveTabInfo = (tabsInfo) => {
     document.body.removeChild(link);
 }
 
-const arrToString = (arr, colDelimeter=',', rowDelimeter='\n') => {
+const arrToStringCSV = (arr, colDelimeter=',', rowDelimeter='\n') => {
     return arr.map((row) => row.map((cell) => escapeForCSV(cell)).join(colDelimeter)).join(rowDelimeter);
+}
+
+const arrToStringMarkDown = (arr) => {
+    return arr.map((row) => `[${row[1]}](${row[2]})`).join('\n');
 }
 
 const execDownload = (content, fileType) => {
@@ -80,9 +92,12 @@ const log = (attr) => {
 const run = () => {
     window.addEventListener('load', () => {
         //operateCurrentTabs(log);
-        const dlButton = document.getElementById('download');
+        const csvButton = document.getElementById('csv');
+        const mdButton = document.getElementById('md');
         const saveButton = document.getElementById('save');
-        dlButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfo);});
+
+        csvButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoCSV);});
+        mdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
         saveButton.addEventListener('click', () => {operateCurrentTabs(saveTabInfo);});
     });
     
