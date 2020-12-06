@@ -81,7 +81,7 @@ a {
     color: #ffffff;
     position: relative;
     padding: 0% 4% 0% 4%;
-    margin: 4% 40% 4% 40%;
+    margin: 4% 35% 4% 35%;
     line-height: 2.0;
     display: block;
     text-align: center;
@@ -109,6 +109,10 @@ a {
     transition: all .5s ease-in-out;
     transform: translateX(-96%);
     background-color: #68eb85;
+}
+
+.exit::before {
+    background-color: #eb6868;
 }
 
 .btn:hover::before {
