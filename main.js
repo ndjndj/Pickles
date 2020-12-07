@@ -12,7 +12,7 @@ const operateCurrentTabs = (callback) => {
 }
 
 const showTabsMenu = () => {
-    openWindow('tabsMenu.html', 'tabsMenu');
+    openWindow('tabMenu.html', 'tabsMenu');
 }
 
 const downloadTabInfoCSV = (tabsInfo) => {
