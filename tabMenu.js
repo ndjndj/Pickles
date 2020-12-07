@@ -20,7 +20,7 @@ const showTabs = (tabsObj) => {
         // タブ名作成
         tabName = document.createElement('a');
         tabName.className = 'tabName';
-        tabName.innerText = tabsObj[key]['tabName'];
+        tabName.innerText = `${tabsObj[key]['tabName']}(${tabsObj[key]['storeTabs'].length})`;
         // 削除ボタン作成
         del = document.createElement('a');
         del.className = 'del';
@@ -34,13 +34,9 @@ const showTabs = (tabsObj) => {
     
     for (var i = 0; i < keys.length; i++) {
         console.log(tabsObj[keys[i]]);
-
-
     }
-
-
-
 }
+
 
 const run = () => {
     window.addEventListener('load', () => {
