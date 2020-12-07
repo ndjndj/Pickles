@@ -5,6 +5,13 @@ const getTabsInfo = (callback) => {
     });
 }
 
+const getStores = (callback) => {
+    // storage のデータ取得
+    chrome.storage.sync.get(['store'], (result) => {
+        callback(result.store);
+    });
+}
+
 const arrToHTMLTag = (arr) => {
     let parent = document.getElementById('tabsInfo');
     let div;
@@ -61,30 +68,59 @@ const arrToHTMLTag = (arr) => {
     });
 }
 
-const saveTabs = () => {
-    const key = dateToString(new Date());
-    console.log(key);
-    const tabName = document.getElementById('tabName');
+const saveTabs = (store) => {
+    let key = dateToString(new Date());
+    // タブ名
+    const tabName = document.getElementById('tabName').value;
     const tabsInfo = document.getElementById('tabsInfo');
     const containers = tabsInfo.getElementsByClassName('container');
     
+    let newTabsInfo = loadCheckTabs(containers);
+    // バリデーションチェック
+    // タブが選択されていない場合
+    if (newTabsInfo.length == 0) { 
+        window.alert('nothing selected tab.'); 
+        return;
+    }
+    // タブ名が不正な場合
+    if (tabName == '' || tabName == undefined || tabName == null) { 
+        window.alert('invalid tabName.'); 
+        return;
+    } 
+
+    let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
+    if (typeof(store) == 'undefined') {store = {};}
+    // キーがすでに存在している場合、キーを再作成する
+    if (store[String(key)] != undefined) {
+        key = dateToString(new Date());
+    }
+    
+    store[String(key)] = newStore;
+    //タブ情報を保存する
+    chrome.storage.sync.set({'store': store}, () => {});
+}
+
+const loadCheckTabs = (elem) => {
     let newTabsInfo = [];
     let index = 1;
+
     Array.prototype.forEach.call(
-          containers
-        , (container) => {
-            let checkVal = container.getElementsByClassName('checkLabel')[0]
-                                    .getElementsByTagName('input')[0].checked;
-            if (checkVal) {
-                let tabTitle = container.getElementsByClassName('tabTitle')[0].value;
-                let tabHref = container.getElementsByClassName('tabHref')[0].value;
-                let info = [index, tabTitle, tabHref];
-                newTabsInfo.push(info);
-                
-                index++;
-            }
-        }
+        elem
+      , (container) => {
+          let checkVal = container.getElementsByClassName('checkLabel')[0]
+                                  .getElementsByTagName('input')[0].checked;
+          if (checkVal) {
+              let tabTitle = container.getElementsByClassName('tabTitle')[0].value;
+              let tabHref = container.getElementsByClassName('tabHref')[0].value;
+              let info = [index, tabTitle, tabHref];
+              newTabsInfo.push(info);
+              
+              index++;
+          }
+      }
     );
+
+    return newTabsInfo
 }
 
 const zeroPadding = (targetNum, paddingNum) => {
@@ -109,7 +145,7 @@ const run = () => {
         const saveButton = document.getElementsByClassName('save')[0];
 
         getTabsInfo(arrToHTMLTag);
-        saveButton.addEventListener('click', () => {saveTabs();});
+        saveButton.addEventListener('click', () => {getStores(saveTabs);});
     });
 }
 
