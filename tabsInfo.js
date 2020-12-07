@@ -87,14 +87,15 @@ const saveTabs = (store) => {
         window.alert('invalid tabName.'); 
         return;
     } 
-
-    let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
-    if (typeof(store) == 'undefined') {store = {};}
+    // store が空の場合(初回セーブ時)、新しいオブジェクトを作成する
+    if (typeof(store) == 'undefined') {
+        store = {};
+    }
     // キーがすでに存在している場合、キーを再作成する
     if (store[String(key)] != undefined) {
         key = dateToString(new Date());
     }
-    
+    let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
     store[String(key)] = newStore;
     //タブ情報を保存する
     chrome.storage.sync.set({'store': store}, () => {});
