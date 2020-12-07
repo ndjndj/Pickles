@@ -78,9 +78,15 @@ const saveTabs = (store) => {
     let newTabsInfo = loadCheckTabs(containers);
     // バリデーションチェック
     // タブが選択されていない場合
-    if (newTabsInfo.length == 0) { window.alert('nothing selected tab.'); }
+    if (newTabsInfo.length == 0) { 
+        window.alert('nothing selected tab.'); 
+        return;
+    }
     // タブ名が不正な場合
-    if (tabName == '' || tabName == undefined || tabName == null) { window.alert('invalid tabName.'); } 
+    if (tabName == '' || tabName == undefined || tabName == null) { 
+        window.alert('invalid tabName.'); 
+        return;
+    } 
     
 
 
