@@ -11,6 +11,10 @@ const operateCurrentTabs = (callback) => {
     );
 }
 
+const showTabsMenu = () => {
+    openWindow('tabsMenu.html', 'tabsMenu');
+}
+
 const downloadTabInfoCSV = (tabsInfo) => {
     // タイトル文字列のエスケープ処理
     let processedTabsInfo = tabsInfo.map(tabs => [tabs[0], escapeForCSV(tabs[1]), tabs[2]]);
@@ -105,11 +109,13 @@ const log = (attr) => {
 const run = () => {
     window.addEventListener('load', () => {
         //operateCurrentTabs(log);
+        const tabsButton = document.getElementById('tabs');
         const csvButton = document.getElementById('csv');
         const dlMdButton = document.getElementById('dl-md');
         const outputMdButton = document.getElementById('output-md');
         const saveButton = document.getElementById('save');
 
+        tabsButton.addEventListener('click', () => {operateCurrentTabs(showTabsMenu);});
         csvButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoCSV);});
         dlMdButton.addEventListener('click', () => {operateCurrentTabs(downloadTabInfoMarkDown);});
         outputMdButton.addEventListener('click', () => {operateCurrentTabs(openOutputWindow);});
