@@ -85,6 +85,8 @@ const saveTabs = () => {
             }
         }
     );
+
+    console.log(newTabsInfo);
 }
 
 const zeroPadding = (targetNum, paddingNum) => {
