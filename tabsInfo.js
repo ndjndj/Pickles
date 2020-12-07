@@ -69,7 +69,7 @@ const arrToHTMLTag = (arr) => {
 }
 
 const saveTabs = (store) => {
-    const key = dateToString(new Date());
+    let key = dateToString(new Date());
     // タブ名
     const tabName = document.getElementById('tabName').value;
     const tabsInfo = document.getElementById('tabsInfo');
@@ -87,17 +87,17 @@ const saveTabs = (store) => {
         window.alert('invalid tabName.'); 
         return;
     } 
-    
-
 
     let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
     if (typeof(store) == 'undefined') {store = {};}
+    // キーがすでに存在している場合、キーを再作成する
+    if (store[String(key)] != undefined) {
+        key = dateToString(new Date());
+    }
+    
     store[String(key)] = newStore;
     //タブ情報を保存する
-    console.log(store);
-    //chrome.storage.sync.set({'store': store}, () => {});
-
-
+    chrome.storage.sync.set({'store': store}, () => {});
 }
 
 const loadCheckTabs = (elem) => {
