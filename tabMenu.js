@@ -12,6 +12,7 @@ const showTabs = (tabsObj) => {
     let div;
     let tabName;
     let del;
+    console.log(tabsObj);
     keys.forEach( (key) => {
         // コンテナ作成
         div = document.createElement('div');
@@ -26,6 +27,7 @@ const showTabs = (tabsObj) => {
         del = document.createElement('a');
         del.className = 'del';
         del.innerText = 'DEL';
+        del.addEventListener('click', () => {delTab(tabsObj, key)});
 
         div.appendChild(tabName);
         div.appendChild(del);
@@ -39,7 +41,11 @@ const showTabs = (tabsObj) => {
 }
 
 const delTab = (tabsObj, key) => {
-    
+    delete tabsObj[key];
+    // store 更新
+    chrome.storage.sync.set({'store': tabsObj}, () => {});
+    // 更新
+    location.reload();
 }
 
 const openTabs = (tabsObj, key) => {
