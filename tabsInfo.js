@@ -74,13 +74,22 @@ const saveTabs = (store) => {
     const tabName = document.getElementById('tabName').value;
     const tabsInfo = document.getElementById('tabsInfo');
     const containers = tabsInfo.getElementsByClassName('container');
+    
     let newTabsInfo = loadCheckTabs(containers);
+    // バリデーションチェック
+    // タブが選択されていない場合
+    if (newTabsInfo.length == 0) { window.alert('nothing selected tab.'); }
+    // タブ名が不正な場合
+    if (tabName == '' || tabName == undefined || tabName == null) { window.alert('invalid tabName.'); } 
+    
+
+
     let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
     if (typeof(store) == 'undefined') {store = {};}
     store[String(key)] = newStore;
     //タブ情報を保存する
     console.log(store);
-    chrome.storage.sync.set({'store': store}, () => {});
+    //chrome.storage.sync.set({'store': store}, () => {});
 
 
 }
