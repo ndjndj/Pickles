@@ -27,6 +27,7 @@ const showTabs = (tabsObj) => {
         del.className = 'del';
         del.innerText = 'DEL';
         del.addEventListener('click', () => {delTab(tabsObj, key)});
+        
 
         div.appendChild(tabName);
         div.appendChild(del);
