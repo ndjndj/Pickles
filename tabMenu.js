@@ -12,7 +12,6 @@ const showTabs = (tabsObj) => {
     let div;
     let tabName;
     let del;
-    console.log(tabsObj);
     keys.forEach( (key) => {
         // コンテナ作成
         div = document.createElement('div');
@@ -28,6 +27,7 @@ const showTabs = (tabsObj) => {
         del.className = 'del';
         del.innerText = 'DEL';
         del.addEventListener('click', () => {delTab(tabsObj, key)});
+        
 
         div.appendChild(tabName);
         div.appendChild(del);
@@ -52,19 +52,14 @@ const openTabs = (tabsObj, key) => {
     let arr = tabsObj[key]['storeTabs'];
     let link;
     console.log(arr);
-    arr.forEach( (tab, i) => {
-        if (i == 0) {
-            window.open(tab[2], null, 'noopener noreferrer');
-        } else {
-            link = document.createElement('a');
-            link.href = tab[2];
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
+    arr.forEach( (tab) => {
+        link = document.createElement('a');
+        link.href = tab[2];
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);    
     });
 }
 
