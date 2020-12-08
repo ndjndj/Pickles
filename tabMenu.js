@@ -50,7 +50,6 @@ const delTab = (tabsObj, key) => {
 const openTabs = (tabsObj, key) => {
     let arr = tabsObj[key]['storeTabs'];
     let link;
-    let w;
     console.log(arr);
     arr.forEach( (tab) => {
         link = document.createElement('a');
