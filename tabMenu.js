@@ -50,20 +50,16 @@ const delTab = (tabsObj, key) => {
 const openTabs = (tabsObj, key) => {
     let arr = tabsObj[key]['storeTabs'];
     let link;
+    let w;
     console.log(arr);
-    arr.forEach( (tab, i) => {
-        if (i == 0) {
-            window.open(tab[2], '_blank', 'rel=noopener noreferrer,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes');
-        } else {
-            link = document.createElement('a');
-            link.href = tab[2];
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
+    arr.forEach( (tab) => {
+        link = document.createElement('a');
+        link.href = tab[2];
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);    
     });
 }
 
