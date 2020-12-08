@@ -12,7 +12,6 @@ const showTabs = (tabsObj) => {
     let div;
     let tabName;
     let del;
-    console.log(tabsObj);
     keys.forEach( (key) => {
         // コンテナ作成
         div = document.createElement('div');
@@ -54,7 +53,7 @@ const openTabs = (tabsObj, key) => {
     console.log(arr);
     arr.forEach( (tab, i) => {
         if (i == 0) {
-            window.open(tab[2], null, 'noopener noreferrer');
+            window.open(tab[2], '_blank', 'rel=noopener noreferrer,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes');
         } else {
             link = document.createElement('a');
             link.href = tab[2];
