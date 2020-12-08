@@ -1,10 +1,12 @@
 .container {
     border: solid 2px #ff8f0e;
     border-radius: 4px;
+    padding: 1%;
+    margin: 1%;
 }
 
 .tabName {
-    border: solid 2px #f36060;
+    border: solid 2px #3a6805;
     border-radius: 4px;
     width: 80%;
     display: inline-block;
