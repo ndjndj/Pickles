@@ -49,7 +49,7 @@ const showTabs = (tabsObj) => {
 
 const infoTab = (tabsObj, key) => {
     //タブ情報を一時的に保存する
-    chrome.storage.local.set({'tabsInfo': tabsObj[key]}, () => {});
+    chrome.storage.local.set({'tabsInfo': tabsObj[key]['storeTabs']}, () => {});
     
     //新しいウインドウを作成する
     openWindow('tabsInfo.html', 'tabsInfo');
