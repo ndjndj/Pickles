@@ -98,7 +98,18 @@ const saveTabs = (store) => {
     let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
     store[String(key)] = newStore;
     //タブ情報を保存する
-    chrome.storage.local.set({'store': store}, () => {});
+    chrome.storage.local.set({'store': store}, () => {
+        // エラーがあった場合
+        if (chrome.runtime.lastError) { 
+            window.alert('failed to save tab infomation.') 
+        } else {
+            window.alert('save completed.');
+            window.close();
+        }
+    });
+    
+    
+
 }
 
 const loadCheckTabs = (elem) => {
