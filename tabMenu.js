@@ -11,6 +11,7 @@ const showTabs = (tabsObj) => {
     
     let div;
     let tabName;
+    let info;
     let del;
     keys.forEach( (key) => {
         // コンテナ作成
@@ -22,6 +23,11 @@ const showTabs = (tabsObj) => {
         tabName.className = 'tabName';
         tabName.innerText = `${tabsObj[key]['tabName']}(${tabsObj[key]['storeTabs'].length})`;
         tabName.addEventListener('click', () => {openTabs(tabsObj, key)});
+        // 一覧ボタン作成
+        info = document.createElement('a');
+        info.className = 'info';
+        info.innerText = 'INFO';
+        info.addEventListener('click', () => {infoTab(tabsObj, key);});
         // 削除ボタン作成
         del = document.createElement('a');
         del.className = 'del';
@@ -30,6 +36,7 @@ const showTabs = (tabsObj) => {
 
 
         div.appendChild(tabName);
+        div.appendChild(info);
         div.appendChild(del);
         
         parent.appendChild(div);
@@ -38,6 +45,14 @@ const showTabs = (tabsObj) => {
     for (var i = 0; i < keys.length; i++) {
         console.log(tabsObj[keys[i]]);
     }
+}
+
+const infoTab = (tabsObj, key) => {
+    //タブ情報を一時的に保存する
+    chrome.storage.local.set({'tabsInfo': tabsObj[key]}, () => {});
+    
+    //新しいウインドウを作成する
+    openWindow('tabsInfo.html', 'tabsInfo');
 }
 
 const delTab = (tabsObj, key) => {
@@ -65,6 +80,15 @@ const openTabs = (tabsObj, key) => {
         link.click();
         document.body.removeChild(link);    
     });
+}
+
+const openWindow = (url, name, option='width=470, height=600') => {
+    let link = document.createElement('a');
+    link.addEventListener('click', () => {window.open(url, name, option);});
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    var obj = link.click();
+    document.body.removeChild(link);
 }
 
 const run = () => {
