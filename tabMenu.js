@@ -1,6 +1,6 @@
 const getTabsInfo = (callback) => {
     // storage のデータ取得
-    chrome.storage.sync.get(['store'], (result) => {
+    chrome.storage.local.get(['store'], (result) => {
         callback(result.store);
     });
 }
@@ -27,7 +27,7 @@ const showTabs = (tabsObj) => {
         del.className = 'del';
         del.innerText = 'DEL';
         del.addEventListener('click', () => {delTab(tabsObj, key)});
-        
+
 
         div.appendChild(tabName);
         div.appendChild(del);
@@ -43,7 +43,7 @@ const showTabs = (tabsObj) => {
 const delTab = (tabsObj, key) => {
     delete tabsObj[key];
     // store 更新
-    chrome.storage.sync.set({'store': tabsObj}, () => {});
+    chrome.storage.local.set({'store': tabsObj}, () => {});
     // 更新
     location.reload();
 }
