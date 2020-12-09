@@ -41,6 +41,9 @@ const showTabs = (tabsObj) => {
 }
 
 const delTab = (tabsObj, key) => {
+    // 確認
+    let confirm = window.confirm('Are you sure you want to permanently delete this tab infomation?');
+    if (!confirm) return;
     // 削除
     delete tabsObj[key];
     // store 更新

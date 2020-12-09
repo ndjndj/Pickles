@@ -3,16 +3,19 @@
     border-radius: 4px;
     padding: 1%;
     margin: 1%;
+    display: flex;
 }
 
 .tabName {
     border: solid 2px #3a6805;
     border-radius: 4px;
     width: 80%;
-    display: inline-block;
     margin-right: 2%;
     padding-left: 1%;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tabName:hover {
@@ -23,7 +26,6 @@
     border: solid 2px #cccccc;
     border-radius: 4px;
     width: 10%;
-    display: inline-block;
     text-align: center;
     cursor: pointer;
 }
