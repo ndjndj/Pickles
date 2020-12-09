@@ -45,7 +45,7 @@ const openOutputWindow = (tabsInfo) => {
     let md = arrToStringMarkDown(tabsInfo);
 
     //タブ情報を一時的に保存する
-    chrome.storage.sync.set({'mdString': md}, () => {});
+    chrome.storage.local.set({'mdString': md}, () => {});
     
     //新しいウインドウを作成する
     openWindow('output-md.html', 'output-md');
@@ -53,7 +53,7 @@ const openOutputWindow = (tabsInfo) => {
 
 const saveTabInfo = (tabsInfo) => {
     //タブ情報を一時的に保存する
-    chrome.storage.sync.set({'tabsInfo': tabsInfo}, () => {});
+    chrome.storage.local.set({'tabsInfo': tabsInfo}, () => {});
     
     //新しいウインドウを作成する
     openWindow('tabsInfo.html', 'tabsInfo');

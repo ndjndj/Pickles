@@ -1,13 +1,13 @@
 const getTabsInfo = (callback) => {
     // storage のデータ取得
-    chrome.storage.sync.get(['tabsInfo'], (result) => {
+    chrome.storage.local.get(['tabsInfo'], (result) => {
         callback(result.tabsInfo);
     });
 }
 
 const getStores = (callback) => {
     // storage のデータ取得
-    chrome.storage.sync.get(['store'], (result) => {
+    chrome.storage.local.get(['store'], (result) => {
         callback(result.store);
     });
 }
@@ -98,7 +98,18 @@ const saveTabs = (store) => {
     let newStore = {'tabName': tabName, 'storeTabs': newTabsInfo};
     store[String(key)] = newStore;
     //タブ情報を保存する
-    chrome.storage.sync.set({'store': store}, () => {});
+    chrome.storage.local.set({'store': store}, () => {
+        // エラーがあった場合
+        if (chrome.runtime.lastError) { 
+            window.alert('failed to save tab infomation.') 
+        } else {
+            window.alert('save completed.');
+            window.close();
+        }
+    });
+    
+    
+
 }
 
 const loadCheckTabs = (elem) => {
