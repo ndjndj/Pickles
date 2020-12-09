@@ -41,6 +41,7 @@ const showTabs = (tabsObj) => {
 }
 
 const delTab = (tabsObj, key) => {
+    // 削除
     delete tabsObj[key];
     // store 更新
     chrome.storage.local.set({'store': tabsObj}, () => {});
