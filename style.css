@@ -6,6 +6,10 @@ body {
     padding: 0;
 }
 
+.impact {
+    font-family: "impact";
+}
+
 .header {
     background-color: #000000;
     width: 100%;
