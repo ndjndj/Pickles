@@ -1,9 +1,17 @@
 
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     width: 150px;
     height: 250px;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh; 
 }
 
 .impact {
@@ -17,6 +25,9 @@ body {
     text-align: center;
     color: #68eb85;
 }
+
+
+
 
 a {
     color: inherit;
@@ -68,4 +79,12 @@ a {
 
 .btn:hover {
     color: #000000;
+}
+
+.footer {
+    background-color: #cccccc;
+    width: 100%;
+    text-align: center;
+    line-height: -10%;
+    flex: 1;
 }
