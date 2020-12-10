@@ -1,12 +1,16 @@
 
 body {
-    width: 380px;
-    height: 800px;
-    margin: 0 2%;
+    width: 150px;
+    height: 250px;
+    margin: 0;
+    padding: 0;
 }
 .header {
-    background-color: #cccccc;
-    
+    background-color: #000000;
+    width: 100%;
+    top: 0;
+    text-align: center;
+    color: #68eb85;
 }
 a {
     color: inherit;
