@@ -95,7 +95,7 @@ a {
 
 .btn {
     width: calc(20% + 4px);
-    height: 2%;
+    height: 25px;
     overflow: hidden;
     background-color: #000000;
     color: #ffffff;
@@ -107,7 +107,7 @@ a {
     cursor: pointer;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 
