@@ -48,7 +48,7 @@ const openOutputWindow = (tabsInfo) => {
     chrome.storage.local.set({'mdString': md}, () => {});
     
     //新しいウインドウを作成する
-    openWindow('output-md.html', 'output-md');
+    openWindow('output-md.html', 'output-md', 'width=360, height=500');
 }
 
 const saveTabInfo = (tabsInfo) => {
