@@ -78,7 +78,7 @@ a {
     color: #000000;
 }
 
-.main {
+main {
     flex: 1;
     width: 100%;
 }

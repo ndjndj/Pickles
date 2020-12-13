@@ -31,7 +31,7 @@ const downloadTabInfoMarkDown = (tabInfo) => {
     execDownload(mdString, 'md');
 }
 
-const openWindow = (url, name, option='width=400, height=600') => {
+const openWindow = (url, name, option='width=360, height=600') => {
     let link = document.createElement('a');
     link.addEventListener('click', () => {window.open(url, name, option);});
     link.style.display = 'none';
