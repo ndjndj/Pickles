@@ -101,21 +101,15 @@ a {
     color: #ffffff;
     position: relative;
     padding: 0% 4% 0% 4%;
-    margin: 4% 40% 4% 40%;
+    margin: 4% 35% 4% 35%;
     display: block;
     text-align: center;
     cursor: pointer;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 1.0rem;
+    font-size: 1.4rem;
 }
 
-.btn span {  
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
 
 .btn::before {
     content: "";
