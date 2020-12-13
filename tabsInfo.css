@@ -17,6 +17,12 @@ body {
     font-family: "impact";
 }
 
+main {
+    flex: 1;
+    width: 100%;
+    margin: 4%;
+}
+
 .header {
     background-color: #000000;
     width: 100%;
@@ -31,10 +37,10 @@ a {
 }
 
 #tabsInfo {
-    width: 100%;
+    width: 80%;
     border: solid 2px #cccccc;
     border-radius: 4px;
-    margin: 0 0;
+    margin: 0 1%;
     padding: 4%;
 }
 
@@ -94,15 +100,14 @@ a {
 }
 
 .btn {
-    width: calc(30% + 4px);
-    height: 4%;
+    width: calc(20% + 4px);
+    height: 2%;
     overflow: hidden;
     background-color: #000000;
     color: #ffffff;
     position: relative;
     padding: 0% 4% 0% 4%;
-    margin: 4% 35% 4% 35%;
-    line-height: 2.0;
+    margin: 4% 40% 4% 40%;
     display: block;
     text-align: center;
     cursor: pointer;
@@ -163,14 +168,10 @@ a {
     border: none;
 }
 
-main {
-    flex: 1;
-    width: 100%;
-}
 
 .footer {
     background-color: #cccccc;
-    width: 103%;
+    width: 100%;
     text-align: center;
     bottom: 0;
 }
