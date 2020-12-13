@@ -80,6 +80,7 @@ a {
 
 .main {
     flex: 1;
+    width: 100%;
 }
 
 .footer {
@@ -87,6 +88,5 @@ a {
     width: 100%;
     text-align: center;
     line-height: -10%;
-    position: absolute;
     bottom: 0;
 }
