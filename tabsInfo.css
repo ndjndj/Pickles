@@ -17,12 +17,6 @@ body {
     font-family: "impact";
 }
 
-main {
-    flex: 1;
-    width: 92%;
-    margin: 4%;
-}
-
 .header {
     background-color: #000000;
     width: 100%;
@@ -116,8 +110,7 @@ a {
     font-size: 1.0rem;
 }
 
-.btn span {
-    position: absolute;    
+.btn span {  
     top: 0;
     left: 0;
     right: 0;
@@ -169,6 +162,11 @@ a {
     border: none;
 }
 
+main {
+    flex: 1;
+    width: 92%;
+    margin: 4%;
+}
 
 .footer {
     background-color: #cccccc;
