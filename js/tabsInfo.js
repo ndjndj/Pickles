@@ -154,10 +154,11 @@ const dateToString = (time) => {
 
 const run = () => {
     window.addEventListener('load', () => {
-        const saveButton = document.getElementsByClassName('save')[0];
-
+        const saveButtonTop = document.getElementsByClassName('save')[0];
+        const saveButtonBottom = document.getElementsByClassName('save')[1];
         getTabsInfo(arrToHTMLTag);
-        saveButton.addEventListener('click', () => {getStores(saveTabs);});
+        saveButtonTop.addEventListener('click', () => {getStores(saveTabs);});
+        saveButtonBottom.addEventListener('click', () => {getStores(saveTabs);});
     });
 }
 
