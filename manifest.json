@@ -1,23 +1,19 @@
 {
     "manifest_version": 2,
-    "name": "tabSleeper",
+    "name": "Pickles",
     "description": "",
-    "version": "0.1",
+    "version": "1.0",
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*" ],
         "js": ["main.js"]
         
     }],
-    "background": {
-        "scripts": ["background.js"]
-    },
     "browser_action": {
-        "default_title": "tabSleeper",
+        "default_title": "Pickles",
         "default_popup": "index.html"
     },
     "permissions": [
         "tabs",
-        "background",
         "storage",
         "http://*/*",
         "https://*/*"
