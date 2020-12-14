@@ -12,7 +12,7 @@ const operateCurrentTabs = (callback) => {
 }
 
 const showTabsMenu = () => {
-    openWindow('tabMenu.html', 'tabsMenu');
+    openWindow('html/tabMenu.html', 'tabsMenu');
 }
 
 const downloadTabInfoCSV = (tabsInfo) => {
@@ -48,7 +48,7 @@ const openOutputWindow = (tabsInfo) => {
     chrome.storage.local.set({'mdString': md}, () => {});
     
     //新しいウインドウを作成する
-    openWindow('output-md.html', 'output-md', 'width=360, height=500');
+    openWindow('html/output-md.html', 'output-md', 'width=360, height=500');
 }
 
 const saveTabInfo = (tabsInfo) => {
@@ -56,7 +56,7 @@ const saveTabInfo = (tabsInfo) => {
     chrome.storage.local.set({'tabsInfo': tabsInfo}, () => {});
     
     //新しいウインドウを作成する
-    openWindow('tabsInfo.html', 'tabsInfo');
+    openWindow('html/tabsInfo.html', 'tabsInfo');
 }
 
 const arrToStringCSV = (arr, colDelimeter=',', rowDelimeter='\n') => {
