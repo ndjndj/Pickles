@@ -106,10 +106,7 @@ const saveTabs = (store) => {
             window.alert('save completed.');
             window.close();
         }
-    });
-    
-    
-
+    }); 
 }
 
 const loadCheckTabs = (elem) => {
