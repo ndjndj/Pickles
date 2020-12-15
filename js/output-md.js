@@ -1,6 +1,6 @@
 const getMD = (callback) => {
     // storage のデータを取得
-    chrome.storage.sync.get(['mdString'], (result) => {
+    chrome.storage.local.get(['mdString'], (result) => {
         console.log(result.mdString);
         callback(result.mdString);
     });
