@@ -41,10 +41,6 @@ const showTabs = (tabsObj) => {
         
         parent.appendChild(div);
     });
-    
-    for (var i = 0; i < keys.length; i++) {
-        console.log(tabsObj[keys[i]]);
-    }
 }
 
 const infoTab = (tabsObj, key) => {
