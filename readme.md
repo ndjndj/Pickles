@@ -1,4 +1,4 @@
-# Pickle
+# Pickles
 Pickle is simple Google Chrome Extension that saves the infomation of currently open tabs.
 It can read infomation of open tabs and save it in the browser.
 
