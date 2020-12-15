@@ -21,6 +21,7 @@ const pasteMDString = (mdString) => {
 }
 
 const closeWindow = () => {
+    // window を閉じる
     window.close();
 }
 
