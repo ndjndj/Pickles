@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Pickles",
     "description": "",
-    "version": "1.0",
+    "version": "1.1",
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*" ],
         "js": ["main.js"]
