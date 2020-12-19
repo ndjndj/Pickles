@@ -34,11 +34,12 @@ const showTabs = (tabsObj) => {
         del.innerText = 'DEL';
         del.addEventListener('click', () => {delTab(tabsObj, key)});
 
-
+        // ノードに追加する要素を作成
         div.appendChild(tabName);
         div.appendChild(info);
         div.appendChild(del);
         
+        // ノードに追加
         parent.appendChild(div);
     });
 }
@@ -54,19 +55,21 @@ const infoTab = (tabsObj, key) => {
 const delTab = (tabsObj, key) => {
     // 確認
     let confirm = window.confirm('Are you sure you want to permanently delete this tab infomation?');
+    // 「いいえ」が押された場合
     if (!confirm) return;
     // 削除
     delete tabsObj[key];
     // store 更新
     chrome.storage.local.set({'store': tabsObj}, () => {});
-    // 更新
+    // window の更新
     location.reload();
 }
 
 const openTabs = (tabsObj, key) => {
     let arr = tabsObj[key]['storeTabs'];
     let link;
-    console.log(arr);
+    
+    // 保存されている URL を開く
     arr.forEach( (tab) => {
         link = document.createElement('a');
         link.href = tab[2];
@@ -79,6 +82,7 @@ const openTabs = (tabsObj, key) => {
 }
 
 const openWindow = (url, name, option='width=470, height=600') => {
+    // 引数に指定された URL を開く
     let link = document.createElement('a');
     link.addEventListener('click', () => {window.open(url, name, option);});
     link.style.display = 'none';
@@ -90,7 +94,6 @@ const openWindow = (url, name, option='width=470, height=600') => {
 const run = () => {
     window.addEventListener('load', () => {
         getTabsInfo(showTabs);
-        
     });
 }
 
