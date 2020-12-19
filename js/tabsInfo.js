@@ -110,9 +110,11 @@ const saveTabs = (store) => {
 }
 
 const loadCheckTabs = (elem) => {
+    // タブ情報を格納する配列
     let newTabsInfo = [];
+    // 連番を振るために1からスタートしている
     let index = 1;
-
+    // container からタブ情報を取得し、 newTabsInfo に情報を配列形式で格納する
     Array.prototype.forEach.call(
         elem
       , (container) => {
@@ -139,6 +141,7 @@ const zeroPadding = (targetNum, paddingNum) => {
 }
 
 const dateToString = (time) => {
+    // 時間を YYYYMMDDSSmSmS 形式の文字で返す（数字は0埋めされている）
     let year = zeroPadding(time.getFullYear(), 4);
     let month = zeroPadding(time.getMonth() + 1, 2);
     let day = zeroPadding(time.getDate(), 2);
