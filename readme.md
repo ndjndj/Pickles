@@ -22,4 +22,4 @@ It can read infomation of open tabs and save it in the browser.
 
 5. It can copy tabs infomation to the clipboard in Markdown format.
 
-[copy](https://user-images.githubusercontent.com/54813841/102723429-2b1f1e80-434b-11eb-885e-2a0f9db50ac2.png)
+![copy](https://user-images.githubusercontent.com/54813841/102723429-2b1f1e80-434b-11eb-885e-2a0f9db50ac2.png)
